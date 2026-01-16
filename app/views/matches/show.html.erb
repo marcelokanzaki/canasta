@@ -1,0 +1,21 @@
+<div class="d-grid mb-2">
+  <%= link_to "Início", root_path, class: "btn btn-light" %>
+</div>
+
+<%= turbo_frame_tag @match, :rounds, src: match_rounds_path(@match) %>
+
+<br />
+
+<% @leaderboard.each_with_index do |seat, index| %>
+  <div>
+    <strong><%= index + 1 %>º</strong>
+    <%= seat.player.name %> -
+    <%= seat.total_points %> pontos
+  </div>
+<% end %>
+
+<br />
+
+<div class="d-grid">
+  <%= link_to "Deletar partida", @match, data: { turbo_method: :delete, turbo_confirm: "Tem certeza?" }, class: "btn btn-light" %>
+</div>

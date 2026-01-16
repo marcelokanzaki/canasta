@@ -1,0 +1,11 @@
+<div class="list-group">
+  <div class="list-group-item d-flex-center-between">
+    <strong>
+      Partidas
+    </strong>
+
+    <%= link_to "Nova", new_match_path, class: "btn btn-light" %>
+  </div>
+
+  <%= render @matches %>
+</div>

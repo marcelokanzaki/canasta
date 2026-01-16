@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  round: one
+  player: one
+  knocks: 1
+  clean_canastas: 1
+  dirty_canastas: 1
+  full_canastas: 1
+  half_canastas: 1
+  card_points: 1
+  debt_points: 1
+
+two:
+  round: two
+  player: two
+  knocks: 1
+  clean_canastas: 1
+  dirty_canastas: 1
+  full_canastas: 1
+  half_canastas: 1
+  card_points: 1
+  debt_points: 1

@@ -1,0 +1,46 @@
+<%= turbo_frame_tag @match, :rounds do %>
+  <div class="d-grid">
+    <%= link_to "Voltar", [@match, :rounds], class: "btn btn-light" %>
+  </div>
+
+  <table class="table table-hover align-middle">
+    <thead>
+      <tr>
+        <th>
+          #<%= @round.ordinal %>
+        </th>
+
+        <% @match.players.each do |player| %>
+          <th class="text-center">
+            <%= player.name %>
+          </th>
+        <% end %>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @metrics.each do |metric| %>
+        <tr>
+          <td>
+            <%= metric.last %>
+          </td>
+
+          <% @match.players.each do |player| %>
+            <td class="text-center">
+              <%= form_with model: @scores_by_player[player] do |f| %>
+                <%= f.number_field metric.first,
+                  data: { controller: "form", action: "form#save" },
+                  min: 0,
+                  class: "form-control text-center" %>
+              <% end %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="d-grid">
+    <%= link_to "Deletar", [@match, @round], data: { turbo_method: :delete, turbo_confirm: "Tem certeza?" }, class: "btn btn-light" %>
+  </div>
+<% end %>

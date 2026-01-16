@@ -1,0 +1,13 @@
+<%= link_to match, class: "list-group-item list-group-item-action" do %>
+  <strong>
+    #<%= match.id %>
+  </strong>
+
+  <span class="text-secondary">
+    <%= l(match.created_at, format: :short) %>
+  </span>
+
+  <span>
+    <%= match.players.map(&:name).to_sentence(last_word_connector: " e ", two_words_connector: " e ") %>
+  </span>
+<% end %>

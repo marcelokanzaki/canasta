@@ -1,0 +1,16 @@
+<%= turbo_frame_tag @match, :rounds do %>
+  <div class="list-group">
+    <div class="list-group-item d-flex-center-between">
+      <div>
+        <span class="badge text-bg-secondary rounded-pill">
+          #<%= @match.id %>
+        </span>
+        <%= l(@match.created_at, format: :short) %>
+      </div>
+
+      <%= link_to "Nova rodada", match_rounds_path(@match), data: { turbo_method: :post }, class: "btn btn-light" %>
+    </div>
+
+    <%= render @rounds %>
+  </div>
+<% end %>

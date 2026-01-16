@@ -1,0 +1,10 @@
+<%= form_with model: @match do |f| %>
+  <div class="d-flex flex-column gap-3">
+    <%= f.fields_for :seats, @match.seats do |ff| %>
+      <%= ff.collection_select :player_id, Player.all, :id, :name, { prompt: "Jogador" }, class: "form-select" %>
+    <% end %>
+
+    <%= f.submit "Criar partida", class: "btn btn-primary" %>
+    <%= link_to "Cancelar", root_path, class: "btn btn-light" %>
+  </div>
+<% end %>
