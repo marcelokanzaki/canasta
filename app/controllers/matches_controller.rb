@@ -23,6 +23,12 @@ class MatchesController < ApplicationController
     @leaderboard = @match.seats.sort_by { |seat| -seat.total_points }
   end
 
+  def destroy
+    @match = Match.find(params[:id])
+    @match.destroy
+    redirect_to root_path
+  end
+
   private
 
   def match_params

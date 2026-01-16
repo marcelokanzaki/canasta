@@ -29,7 +29,6 @@
             <td class="text-center">
               <%= form_with model: @scores_by_player[player] do |f| %>
                 <%= f.number_field metric.first,
-                  data: { controller: "form", action: "form#save" },
                   min: 0,
                   class: "form-control text-center" %>
               <% end %>
